@@ -18,7 +18,7 @@
     "album": "Made in the A.M.",
     "year": 2015,
     "duration": "3:12",
-    "cover": "./data/cover/shania.jpeg",
+    "cover": "./data/cover/dragMeDown.jpeg",
     "audioUrl":"./data/songs/dragMeDown.mp3" 
   },
   {
@@ -28,7 +28,7 @@
     "album": "After Hours",
     "year": 2020,
     "duration": "3:20",
-    "cover": "./data/cover/shania.jpeg",
+    "cover": "./data/cover/blindingLights.jpeg",
     "audioUrl": "./data/songs/blindingLights.mp3"
   }
 ]

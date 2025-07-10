@@ -9,7 +9,7 @@ let prevIcon = document.querySelector("#prev")
 let playing = false
 let audio;
 let currentAudio = document.querySelector("#audio")
-let likedSongs= []
+let likedSongs = []
 let allSongs = []
 let progress = document.querySelector(".progress")
 let progressBar = document.querySelector(".progressBar")
@@ -22,6 +22,7 @@ let nextSong, prevSong;
 let shuffle = document.querySelector("#shuffle")
 let isShuffle = false;
 let likeIcon = document.querySelector("#like")
+let noOfSongs = document.querySelector("#noOfSongs")
 window.addEventListener('DOMContentLoaded', async function() {
   let data = await fetch('./songs.json').then((res) => {
     if (res.ok) {
@@ -36,6 +37,7 @@ window.addEventListener('DOMContentLoaded', async function() {
   volume.addEventListener('click', function() {
     volumeProgress.classList.toggle("hidden")
   })
+  noOfSongs.textContent = songs.length + " songs"
   for (let i = 0; i < songs.length; i++) {
     console.log('current index', i, nextSong)
     let song = songs[i]
@@ -47,6 +49,15 @@ window.addEventListener('DOMContentLoaded', async function() {
     let year = document.createElement("td")
     let duration = document.createElement("td")
     let cover = document.createElement("td")
+    let artistInMobile = document.createElement("span")
+    artistInMobile.classList.add("artistInMobile")
+    artistInMobile.textContent = song.artist
+    no.classList.add("hideInMobile")
+    album.classList.add("hideInMobile")
+    artist.classList.add("hideInMobile")
+    year.classList.add("hideInMobile")
+    duration.classList.add("hideInMobile")
+    title.classList.add("songTitle")
     no.textContent = song.id
     title.textContent = song.title
     album.textContent = song.album
@@ -54,6 +65,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     year.textContent = song.year
     duration.textContent = song.duration
     cover.innerHTML = `<img class="cover" src="${song.cover}" alt="${song.title} cover" width="50">`
+    title.appendChild(artistInMobile)
     tr.appendChild(no)
     tr.appendChild(cover)
     tr.appendChild(title)
@@ -83,6 +95,7 @@ window.addEventListener('DOMContentLoaded', async function() {
           marker.style.left = width
           if (audio.currentTime == duration) {
             let id = getShuffleIDorNextIDorPrevID(songs, 'next')
+            currentSongId = id;
             playMusic(songs[id])
 
           }
@@ -99,17 +112,17 @@ window.addEventListener('DOMContentLoaded', async function() {
   }
   )
   // for progress bar
-  likeIcon.addEventListener('click', function() {
-    if (likeIcon.getAttribute("src") === "./data/icons/heart.svg") {
-      likeIcon.setAttribute("src", "./data/icons/heartFilled.svg")
-      console.log(currentSongId,'ci')
-      // likedSongs.push(
-      // localStorage.setItem("likedSongs",)
-    }
-    else {
-      likeIcon.setAttribute("src", "./data/icons/heart.svg")
-    }
-  })
+  // likeIcon.addEventListener('click', function() {
+  //   if (likeIcon.getAttribute("src") === "./data/icons/heart.svg") {
+  //     likeIcon.setAttribute("src", "./data/icons/heartFilled.svg")
+  //     console.log(currentSongId, 'ci')
+  //     // likedSongs.push(
+  //     // localStorage.setItem("likedSongs",)
+  //   }
+  //   else {
+  //     likeIcon.setAttribute("src", "./data/icons/heart.svg")
+  //   }
+  // })
   progress.addEventListener('click', function(event) {
     let percent = getCursorLocation(progress, event, 'x')
     audio.currentTime = audio.duration * percent
@@ -124,11 +137,15 @@ window.addEventListener('DOMContentLoaded', async function() {
   // next
   prevIcon.addEventListener('click', function() {
     let id = getShuffleIDorNextIDorPrevID(songs, 'prev')
+
+    currentSongId = id;
     playMusic(songs[id])
 
   })
   nextIcon.addEventListener('click', function() {
     let id = getShuffleIDorNextIDorPrevID(songs, 'next')
+
+    currentSongId = id;
     playMusic(songs[id])
 
 
@@ -162,7 +179,7 @@ function getCursorLocation(element, event, axis) {
   return percent
 }
 function playMusic(song) {
-   
+
   displayMusicInfo(song)
   // play
   if (!audio) {
