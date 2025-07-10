@@ -1,0 +1,223 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  position: relative;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.icon-xs,.icon-sm,.icon-md{
+ padding: .5em;
+}
+
+.icon-xs:hover,.icon-sm:hover,.icon-md:hover{
+ background-color: oklch(92.2% 0 0);
+ border-radius: 10px;
+ cursor: pointer;
+}
+
+.icon-xs {
+  width: 1em;
+  height: 1em;
+}
+
+.icon-sm {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.icon-md {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 20% auto;
+  gap: 1em;
+}
+
+.sidebar {
+  background-color: oklch(97% 0 0);
+  padding: 2em;
+  height: calc(100vh - 4em);
+}
+
+.brand {
+  font-size: 1.3em;
+  margin-bottom: 1em;
+}
+
+.sideNav li {
+  list-style-type: none;
+  padding: 0.8em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sideNav li:hover {
+  background-color: oklch(92.2% 0 0);
+}
+/* search */
+.mainIcons{
+ display: flex;
+  gap: 1em;
+}
+.mainIcons img{
+  align-self: center;
+}
+#search{
+ padding: 1em;
+ border-radius: 1em;
+ border: 1px solid oklch(92.2% 0 0);
+ width: 15em;
+}
+/* main */
+.main {
+  padding: 2em;
+}
+
+.mainNav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+/* current song */
+.current {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border-top: 1px solid oklch(92.2% 0 0);
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.songInfo {
+  display: flex;
+  gap: 1em;
+}
+
+.cover {
+  width: 3em;
+  height: 3em;
+  background-color: oklch(92.2% 0 0);
+}
+.controls{
+
+  justify-self:center;
+}
+.controls-row {
+  display: flex;
+  gap: .5em;
+}
+.controls-row img{
+ align-self: center;
+}
+.progress{
+  position: relative;
+ width: 5em;
+ height: 6px;
+ background-color: oklch(92.2% 0 0);
+ border-radius:5px;
+ align-self: center;
+}
+.progressBar{
+ background-color: hotpink;
+ border-radius: 5px;
+ position:absolute;
+ top: 0;
+ left: 0;
+ width: 0;
+ height: 100%;
+}
+.marker{
+ border-radius: 100px;
+ width: 10px;
+ height: 10px;
+ background-color: deeppink;
+ position:absolute;
+ top: -2px;
+ left: 0;
+ cursor: pointer;
+}
+.volume{
+  justify-self: flex-end;
+  position: relative;
+}
+.hidden{
+ display: none;
+}
+.volumeProgress{
+  position: absolute;
+  top: -5.5em;
+  left: 0.75em;
+  width: 6px;
+  height: 5em;
+  background-color: oklch(92.2% 0 0);
+  border-radius:5px;
+}
+.volumeBar{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height:0; 
+  background-color: hotpink;
+  border-radius:5px;
+
+}
+/* table */
+table{
+ border: none;
+ border-collapse: collapse;
+}
+
+tr:hover td{
+  background-color: oklch(92.2% 0 0);
+  cursor: pointer;
+}
+tr td:first-child{
+ border-top-left-radius: 10px;
+ border-bottom-left-radius: 10px;
+}
+tr td:last-child{
+ border-top-right-radius: 10px;
+ border-bottom-right-radius: 10px;
+}
+tr td:first-child,
+tr th:first-child,
+tr td:nth-child(2),
+tr th:nth-child(2) {
+  width: 3em;
+}
+
+.table th,
+.table td {
+  padding: 1em 1em;
+  width: 10em;
+  box-sizing: border-box;
+  text-align: start;
+}
+
+.cover{
+ border-radius: 10px;
+}
+.hidden{
+  display: none;
+}

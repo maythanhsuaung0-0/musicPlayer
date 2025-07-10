@@ -1,0 +1,35 @@
+{"songs":[
+  {
+
+    "id":1,
+    "title": "You're Still the One",
+    "artist": "Shania Twain",
+    "album": "Come On Over",
+    "year": 1997,
+    "duration": "3:32",
+    "cover": "./data/cover/shania.jpeg",
+    "audioUrl": "./data/songs/yourStillTheOne.mp3"
+  },
+  {
+
+    "id":2,
+    "title": "Drag Me Down",
+    "artist": "One Direction",
+    "album": "Made in the A.M.",
+    "year": 2015,
+    "duration": "3:12",
+    "cover": "./data/cover/shania.jpeg",
+    "audioUrl":"./data/songs/dragMeDown.mp3" 
+  },
+  {
+    "id":3,
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "album": "After Hours",
+    "year": 2020,
+    "duration": "3:20",
+    "cover": "./data/cover/shania.jpeg",
+    "audioUrl": "./data/songs/blindingLights.mp3"
+  }
+]
+}
