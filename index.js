@@ -74,7 +74,19 @@ window.addEventListener('DOMContentLoaded', async function() {
     tr.appendChild(year)
     tr.appendChild(duration)
     tbody.appendChild(tr)
+    if (currentSongId == i && playing) {
+      no.classList.add("active")
+      album.classList.add("active")
+      artist.classList.add("active")
+      year.classList.add("active")
+      duration.classList.add("active")
+      year.classList.add("active")
+      title.classList.add("active")
+      cover.classList.add("active")
+    }
     tr.addEventListener('click', function() {
+
+      currentSongTitle.classList.add("animate")
       playMusic(song)
       let height = audio.volume * 100 + "%"
       volumeBar.style.height = height
@@ -148,19 +160,17 @@ window.addEventListener('DOMContentLoaded', async function() {
     currentSongId = id;
     playMusic(songs[id])
 
-
   })
-
-
-
   currentStatus.addEventListener('click', function() {
     if (audio) {
       if (playing) {
         audio.pause()
+        currentSongTitle.classList.remove("animate")
         currentStatus.setAttribute("src", "./data/icons/play.svg")
         playing = false
       }
       else {
+        currentSongTitle.classList.add("animate")
         audio.play()
         currentStatus.setAttribute("src", "./data/icons/pause.svg")
         playing = true
@@ -179,7 +189,7 @@ function getCursorLocation(element, event, axis) {
   return percent
 }
 function playMusic(song) {
-
+  currentSongTitle.classList.add("animate")
   displayMusicInfo(song)
   // play
   if (!audio) {
